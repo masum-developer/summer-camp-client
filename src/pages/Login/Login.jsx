@@ -2,7 +2,8 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
@@ -45,6 +46,8 @@ const Login = () => {
                     <input type="submit" className="btn btn-block hover:bg-purple-900 bg-black text-white  my-4 " value="Login" />
                 </div>
             </form>
+            <p>New to Martial Art Academy <Link to='/register'>Register</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
