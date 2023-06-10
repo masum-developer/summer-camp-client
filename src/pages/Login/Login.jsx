@@ -1,13 +1,21 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 const Login = () => {
+    const [open,setOpen] = useState(true)
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const {logIn} = useContext(AuthContext);
+    const handleShow = ()=>{
+        setOpen(false)
+    }
+    const handleHide = ()=>{
+        setOpen(true)
+    }
     const onSubmit = data => {
         console.log(data)
         logIn(data.email,data.password)
@@ -21,7 +29,7 @@ const Login = () => {
         <div className="my-5">
             <h2 className="text-3xl text-center">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex">
+                <div className="flex justify-between">
                     
                     <div className="form-control w-full mr-4">
                         <label className="label">
@@ -31,15 +39,29 @@ const Login = () => {
                             {...register("email")}
                             className="input input-bordered w-full " />
                     </div>
-                    <div className="form-control w-full ">
+                    <div className="form-control w-full mr-4 ">
                         <label className="label">
                             <span className="label-text">Password*</span>
                         </label>
-                        <input type="password" placeholder="Password"
+                        {
+                            open?<input type="password" placeholder="Password"
                             {...register("password")}
                             className="input input-bordered w-full"
-                        />
+                        />:<input type="text" placeholder="Password"
+                        {...register("password")}
+                        className="input input-bordered w-full"
+                    />
+                        }
+                        
+                        
+                        
                     </div>
+                    <div className="mt-8">
+                    {
+                       open?<button onClick={handleShow} className="btn btn-circle btn-outline"><FaEye></FaEye></button>:<button onClick={handleHide} className="btn btn-circle btn-outline"><FaEyeSlash></FaEyeSlash></button>
+                    }
+                    </div>
+                    
                 </div>
                 
                 <div className="text-center">

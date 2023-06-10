@@ -11,12 +11,14 @@ import Dashboard from "../Layout/Dashboard";
 import EnrolledClass from "../pages/Student/EnrolledClass/EnrolledClass";
 import AllUser from "../pages/AllUser/AllUser";
 import AddClass from "../pages/AddClass/AddClass";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
