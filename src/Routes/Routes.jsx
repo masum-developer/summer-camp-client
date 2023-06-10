@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import EnrolledClass from "../pages/Student/EnrolledClass/EnrolledClass";
 import AllUser from "../pages/AllUser/AllUser";
+import AddClass from "../pages/AddClass/AddClass";
 
 
 export const router = createBrowserRouter([
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
             {
                 path:'allUser',
                 element:<AllUser></AllUser>
+            },
+            {
+                path:'addClass',
+                element:<AddClass></AddClass>
             }
         ]
     }
