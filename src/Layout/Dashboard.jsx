@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+    const isAdmin = true;
     return (
         <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -14,7 +15,12 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80">
                     
-                        
+                        {
+                            isAdmin?<>
+                                    <li><Link to="/admin/allUser">All User</Link></li>
+                                </>:<></>
+                            
+                        }
                             <li><Link>Home</Link></li>
                          
                         
