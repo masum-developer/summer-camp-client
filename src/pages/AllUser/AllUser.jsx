@@ -76,7 +76,6 @@ const AllUser = () => {
                             <th>Make Admin</th>
                             <th>Make Instructor</th>
 
-                            
                         </tr>
                     </thead>
                     <tbody>

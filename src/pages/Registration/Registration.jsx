@@ -1,17 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token
 const Registration = () => {
+    const [confirmPassword,setConfirmPassword] =useState('');
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile,logOut} = useContext(AuthContext);
     const navigate = useNavigate();
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const onSubmit = data => {
-
         console.log(data);
+        if(data.password!==confirmPassword){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Password does not match',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
         const formData = new FormData();
         formData.append('image', data.image[0])
         fetch(image_hosting_url, {
@@ -45,7 +55,7 @@ const Registration = () => {
                                                 icon: 'success',
                                                 title: 'Student created successfully',
                                                 showConfirmButton: false,
-                                                timer: 1500
+                                                timer: 2500
                                             });
                                             logOut()
                                                 .then(() => {
@@ -69,7 +79,7 @@ const Registration = () => {
                 <div className="flex">
                     <div className="form-control w-full ">
                         <label className="label">
-                            <span className="label-text">Name*</span>
+                            <span className="label-text">Name</span>
                         </label>
                         <input type="text" placeholder="Name"
                             {...register("name")}
@@ -104,15 +114,28 @@ const Registration = () => {
                     </div>
                     <div className="form-control w-full ml-4">
                         <label className="label">
-                            <span className="label-text">Image*</span>
+                            <span className="label-text">Confirm Password*</span>
+                        </label>
+                        <input type="password"
+                         placeholder="confirm Password"
+                        className="input input-bordered w-full"
+                        value={confirmPassword}
+                        onChange={(e)=>setConfirmPassword(e.target.value)}
+                        />
+                        
+                    </div>
+                    
+                </div>
+                <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Image</span>
                         </label>
                         <input type="file"
-                        {...register("image", { required: true })}
+                        {...register("image")}
                         className="file-input file-input-bordered w-full" />
                     </div>
-                </div>
                 <div className="text-center">
-                    <input type="submit" className="btn btn-block hover:bg-green-900 bg-black text-white  my-4 " value="Add" />
+                    <input type="submit" className="btn btn-block hover:bg-slate-800 bg-black text-white  my-4 " value="Add" />
                 </div>
             </form>
             <p>Already have an account <Link to='/login' className="text-red">Login</Link></p>

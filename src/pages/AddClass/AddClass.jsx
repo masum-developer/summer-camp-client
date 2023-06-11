@@ -20,7 +20,7 @@ const AddClass = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const photoURL = imgResponse.data.display_url;
-                    const saveClass = { name: data.name, image: photoURL, instructorName:user.displayName,instructorEmail:user.email,availableSeat:data.availableSeat,price:data.price,status:'pending'}
+                    const saveClass = { name: data.name, image: photoURL, instructorName:user.displayName,instructorEmail:user.email,availableSeat:data.availableSeat,price:data.price,status:'pending',feedback:''}
                     fetch('http://localhost:5000/addclass', {
                         method: 'POST',
                         headers: {
@@ -51,10 +51,19 @@ const AddClass = () => {
         <div className="my-5">
             <h2 className="text-3xl text-center">Registration</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex my-5">
+                <div className="form-control w-full">
+                        <h2>InstructorName: {user?.displayName}</h2>
+                    </div>
+                    <div className="form-control w-full ml-4">
+                        <h2>Email: {user?.email}</h2>
+                    </div>
+                    
+                </div>
                 <div className="flex">
-                <div className="form-control w-full ml-4">
+                <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Class Name</span>
                         </label>
                         <input type="name" placeholder="Class Name"
                             {...register("name",{required: true})}
@@ -91,7 +100,7 @@ const AddClass = () => {
                 </div>
                 
                 <div className="text-center">
-                    <input type="submit" className="btn btn-block hover:bg-green-900 bg-black text-white  my-4 " value="Add Class" />
+                    <input type="submit" className="btn btn-block hover:bg-slate-800 bg-black text-white  my-4 " value="Add Class" />
                 </div>
             </form>
             

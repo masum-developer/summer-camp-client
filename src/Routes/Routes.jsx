@@ -12,6 +12,8 @@ import EnrolledClass from "../pages/Student/EnrolledClass/EnrolledClass";
 import AllUser from "../pages/AllUser/AllUser";
 import AddClass from "../pages/AddClass/AddClass";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ManageClass from "../pages/ManageClass/ManageClass";
+import ManageClassStatus from "../pages/ManageClass/ManageClassStatus";
 
 
 export const router = createBrowserRouter([
@@ -60,7 +62,17 @@ export const router = createBrowserRouter([
             {
                 path:'addClass',
                 element:<AddClass></AddClass>
-            }
+            },
+            {
+                path:'manageClass',
+                element:<ManageClass></ManageClass>
+            },
+            
         ]
+    },
+    {
+                
+        path:'class/:id',
+        element:<ManageClassStatus></ManageClassStatus>
     }
 ]);
