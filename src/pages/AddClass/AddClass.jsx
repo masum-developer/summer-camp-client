@@ -20,7 +20,7 @@ const AddClass = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const photoURL = imgResponse.data.display_url;
-                    const saveClass = { name: data.name, image: photoURL, instructorName:user.displayName,instructorEmail:user.email,availableSeat:data.availableSeat,price:data.price,status:'pending',feedback:''}
+                    const saveClass = { name: data.name, image: photoURL, instructorName:user.displayName,instructorEmail:user.email,availableSeat:data.availableSeat,price:data.price,status:'pending',feedback:'',totalEnrolledStudent:0}
                     fetch('http://localhost:5000/addclass', {
                         method: 'POST',
                         headers: {

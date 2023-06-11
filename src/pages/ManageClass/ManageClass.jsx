@@ -98,7 +98,6 @@ const ManageClass = () => {
 
                             }
                             
-                            
                         </th>
                     </tr>)}
 
