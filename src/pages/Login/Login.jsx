@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 const Login = () => {
@@ -10,6 +10,9 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const {logIn} = useContext(AuthContext);
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
     const handleShow = ()=>{
         setOpen(false)
     }
@@ -21,7 +24,7 @@ const Login = () => {
         logIn(data.email,data.password)
         .then(loggedUser=>{
             console.log(loggedUser);
-            navigate('/');
+            navigate(from, {replace:true});
         })
         .catch(error=>console.log(error))
     };
@@ -65,7 +68,7 @@ const Login = () => {
                 </div>
                 
                 <div className="text-center">
-                    <input type="submit" className="btn btn-block hover:bg-purple-900 bg-black text-white  my-4 " value="Login" />
+                    <input type="submit" className="btn btn-block hover:bg-slate-800 bg-black text-white  my-4 " value="Login" />
                 </div>
             </form>
             <p>New to Martial Art Academy <Link to='/register'>Register</Link></p>

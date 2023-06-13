@@ -41,6 +41,7 @@ const Dashboard = () => {
             <>
               <li><Link>Selected Class</Link></li>
               <li><Link>Enrolled Class</Link></li>
+              <li><Link to='/dashboard/myCart'>MyCart</Link></li>
             </>
             
           }

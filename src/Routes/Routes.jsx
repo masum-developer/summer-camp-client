@@ -15,6 +15,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ManageClass from "../pages/ManageClass/ManageClass";
 import ManageClassStatus from "../pages/ManageClass/ManageClassStatus";
 import MyClass from "../pages/MyClass/MyClass";
+import MyCart from "../pages/MyCart/MyCart";
 
 
 export const router = createBrowserRouter([
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
                 path:'manageClass',
                 element:<ManageClass></ManageClass>
+            },
+            {
+                path:'myCart',
+                element:<MyCart></MyCart>
             },
             
         ]
