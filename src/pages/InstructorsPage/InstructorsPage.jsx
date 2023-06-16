@@ -2,7 +2,7 @@ import InstructorDetails from "./InstructorDetails";
 import { useQuery } from '@tanstack/react-query'
 const InstructorsPage = () => {
     const {data:instructors=[]} =useQuery(['instructors'],async()=>{
-        const res = await fetch('http://localhost:5000/instructors')
+        const res = await fetch('https://martialart-academy-server.vercel.app/instructors')
         return res.json();
     })
    

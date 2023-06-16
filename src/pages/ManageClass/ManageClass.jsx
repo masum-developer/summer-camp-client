@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom';
 const ManageClass = () => {
     const {data:allClass=[]} =useQuery(['allClass'],async()=>{
-        const res = await fetch('http://localhost:5000/allClass')
+        const res = await fetch('https://martialart-academy-server.vercel.app/allClass')
         return res.json();
     })
     const navigate = useNavigate();
     const handleApprove = singleClass=>{
         const updatedClass = {status:'approve'}
-        fetch(`http://localhost:5000/class/approve/${singleClass._id}`,{
+        fetch(`https://martialart-academy-server.vercel.app/class/approve/${singleClass._id}`,{
             
             method:'PATCH',
             headers:{
@@ -26,7 +26,7 @@ const ManageClass = () => {
     }
     const handleDenied = singleClass=>{
         
-        fetch(`http://localhost:5000/class/denied/${singleClass._id}`,{
+        fetch(`https://martialart-academy-server.vercel.app/class/denied/${singleClass._id}`,{
             
             method:'PATCH',
             headers:{

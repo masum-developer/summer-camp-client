@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const PopularClass = ({popularClass}) => {
@@ -12,7 +13,7 @@ const PopularClass = ({popularClass}) => {
         console.log(singleClass);
         if (user && user.email) {
             const cartItem = { selectClassId: _id, name, image, price, email: user.email, instructorName }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://martialart-academy-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

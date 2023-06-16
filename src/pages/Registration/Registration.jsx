@@ -39,7 +39,7 @@ const Registration = () => {
                             updateUserProfile(data.name, photoURL)
                             .then(()=>{
                                 const saveUser = {name:data.name,email:data.email,image:photoURL,role:'student'}
-                                fetch('http://localhost:5000/users', {
+                                fetch('https://martialart-academy-server.vercel.app/users', {
                                     method: 'POST',
                                     headers:{
                                         'content-type': 'application/json'

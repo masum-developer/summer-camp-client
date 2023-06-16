@@ -10,7 +10,7 @@ const ManageClassStatus = () => {
     const onSubmit = data => {
         console.log(id);
         const updatedClass = {feedback:data.feedback}
-        fetch(`http://localhost:5000/class/feedback/${id}`,{
+        fetch(`https://martialart-academy-server.vercel.app/class/feedback/${id}`,{
             method:'PATCH',
             headers:{
                 'content-type':'application/json'
