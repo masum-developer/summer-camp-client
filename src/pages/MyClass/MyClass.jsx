@@ -20,8 +20,7 @@ const MyClass = () => {
                         <th>
                             sl
                         </th>
-                        <th>Name</th>
-                        
+                        <th>Class Name</th>
                         <th>Seats</th>
                         <th>Price</th>
                         <th>Status</th>

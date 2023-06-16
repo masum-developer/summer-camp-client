@@ -16,6 +16,7 @@ import ManageClass from "../pages/ManageClass/ManageClass";
 import ManageClassStatus from "../pages/ManageClass/ManageClassStatus";
 import MyClass from "../pages/MyClass/MyClass";
 import MyCart from "../pages/MyCart/MyCart";
+import Payment from "../pages/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -76,7 +77,8 @@ export const router = createBrowserRouter([
             {
                 path:'myCart',
                 element:<MyCart></MyCart>
-            },
+            }
+            
             
         ]
     },
@@ -84,5 +86,9 @@ export const router = createBrowserRouter([
                 
         path:'class/:id',
         element:<ManageClassStatus></ManageClassStatus>
+    },
+    {
+        path:'payment/:price',
+        element:<Payment></Payment>
     }
 ]);

@@ -1,5 +1,6 @@
 
-const InstructorDetails = ({instructor}) => {
+
+const Instructor = ({instructor}) => {
     const {image,name,email} = instructor;
     return (
         <div className="card w-96 bg-base-100 shadow-xl p-5">
@@ -15,4 +16,4 @@ const InstructorDetails = ({instructor}) => {
     );
 };
 
-export default InstructorDetails;
+export default Instructor;

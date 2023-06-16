@@ -2,14 +2,15 @@ import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useStudent from "../hooks/useStudent";
+import { FaShoppingCart, FaWallet } from 'react-icons/fa';
 
 const Dashboard = () => {
-  
+
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [isStudent] = useStudent();
-  
-  
+
+  console.log(isStudent)
   return (
 
     <div className="drawer lg:drawer-open">
@@ -23,27 +24,33 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {
-            isAdmin &&<>
+            isAdmin && <>
               <li><Link to="/dashboard/manageClass">Manage Classes</Link></li>
               <li><Link to="/dashboard/allUser">Manage Users</Link></li>
             </>
-}
-{
-          
-            isInstructor &&
-              <>
-                <li><Link to="/dashboard/myClass">My Class</Link></li>
-                <li><Link to="/dashboard/addClass">Add Class</Link></li>
-              </>
-}
+          }
           {
-            isStudent&&
+
+            isInstructor &&
             <>
-              <li><Link>Selected Class</Link></li>
-              <li><Link>Enrolled Class</Link></li>
-              <li><Link to='/dashboard/myCart'>MyCart</Link></li>
+              <li><Link to="/dashboard/myClass">My Class</Link></li>
+              <li><Link to="/dashboard/addClass">Add Class</Link></li>
             </>
-            
+          }
+          {
+            isStudent &&
+            <>
+              <li><Link to='/dashboard/myCart'><FaShoppingCart></FaShoppingCart>Selected Class</Link>
+              </li>
+              <li>
+                <Link><FaWallet></FaWallet> Enrolled Class</Link>
+              </li>
+              <li>
+                <Link><FaWallet></FaWallet> Payment History</Link>
+              </li>
+
+            </>
+
           }
 
 
@@ -52,6 +59,7 @@ const Dashboard = () => {
 
           <div className="divider"></div>
           <li><Link to='/'>Home</Link></li>
+
 
 
 

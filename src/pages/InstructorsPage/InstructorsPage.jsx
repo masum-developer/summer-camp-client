@@ -9,7 +9,7 @@ const InstructorsPage = () => {
     return (
         <div>
             <h2 className="text-center text-2xl my-10">Total No of Instructor: {instructors.length}</h2>
-        <div className="grid md:grid-cols-2 mb-10">
+        <div className="grid md:grid-cols-2 mb-10 gap-6">
             {instructors && instructors.map(instructor=><InstructorDetails instructor={instructor} key={instructor._id}></InstructorDetails>)}
         </div>
         </div>
