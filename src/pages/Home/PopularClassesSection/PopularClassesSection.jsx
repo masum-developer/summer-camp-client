@@ -4,7 +4,7 @@ import PopularClass from "./PopularClass";
 const PopularClassesSection = () => {
 
     const {data:popularClasses=[]} =useQuery(['popularClasses'],async()=>{
-        const res = await fetch('https://martialart-academy-server.vercel.app/bestClass')
+        const res = await fetch('http://localhost:5000/bestClass')
         return res.json();
     })
     

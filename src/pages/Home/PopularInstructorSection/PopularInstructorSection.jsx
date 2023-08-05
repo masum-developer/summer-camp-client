@@ -4,7 +4,7 @@ import Instructor from "./Instructor";
 const PopularInstructorSection = () => {
 
     const {data:instructors=[]} =useQuery(['instructors'],async()=>{
-        const res = await fetch('https://martialart-academy-server.vercel.app/bestInstructors')
+        const res = await fetch('http://localhost:5000/bestInstructors')
         return res.json();
     })
     

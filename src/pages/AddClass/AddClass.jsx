@@ -21,7 +21,7 @@ const AddClass = () => {
                 if (imgResponse.success) {
                     const photoURL = imgResponse.data.display_url;
                     const saveClass = { name: data.name, image: photoURL, instructorName:user.displayName,instructorEmail:user.email,availableSeat:parseInt(data.availableSeat),price:parseFloat(data.price),status:'pending',feedback:'',totalEnrolledStudent:0}
-                    fetch('https://martialart-academy-server.vercel.app/addclass', {
+                    fetch('http://localhost:5000/addclass', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

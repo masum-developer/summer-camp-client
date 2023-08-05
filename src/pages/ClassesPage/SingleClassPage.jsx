@@ -20,7 +20,7 @@ const SingleClassPage = ({ singleClass }) => {
         queryKey: ['usr'],
         enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`https://martialart-academy-server.vercel.app/users/${user?.email}`)
+            const res = await fetch(`http://localhost:5000/users/${user?.email}`)
             return res.json();
         },
     })
@@ -38,7 +38,7 @@ const SingleClassPage = ({ singleClass }) => {
         console.log(singleClass);
         if (user && user.email) {
             const cartItem = { selectClassId: _id, name, image, price, email: user.email, instructorName }
-            fetch('https://martialart-academy-server.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

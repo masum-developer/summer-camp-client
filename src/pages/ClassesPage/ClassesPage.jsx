@@ -6,7 +6,7 @@ import SingleClassPage from './SingleClassPage';
 const ClassesPage = () => {
     
 const {data:allClass=[]} =useQuery(['allClass'],async()=>{
-        const res = await fetch('https://martialart-academy-server.vercel.app/allClass/approve')
+        const res = await fetch('http://localhost:5000/allClass/approve')
         return res.json();
     })
     console.log('mmm',allClass);

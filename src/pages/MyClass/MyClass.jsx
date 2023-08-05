@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 const MyClass = () => {
     const {user} = useAuth();
     const {data:allClass=[]} =useQuery(['allClass'],async()=>{
-        const res = await fetch(`https://martialart-academy-server.vercel.app/myClass/${user?.email}`)
+        const res = await fetch(`http://localhost:5000/myClass/${user?.email}`)
         return res.json();
     })
     return (

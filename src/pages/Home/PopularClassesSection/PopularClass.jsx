@@ -1,10 +1,10 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 
 const PopularClass = ({popularClass}) => {
-    const {name,image,price,instructorName,availableSeat} = popularClass;
+    const {_id,name,image,price,instructorName,availableSeat} = popularClass;
 
     const { user} = useAuth();
     const location = useLocation();
@@ -13,7 +13,7 @@ const PopularClass = ({popularClass}) => {
         console.log(singleClass);
         if (user && user.email) {
             const cartItem = { selectClassId: _id, name, image, price, email: user.email, instructorName }
-            fetch('https://martialart-academy-server.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -58,7 +58,7 @@ const PopularClass = ({popularClass}) => {
                 <p>Instructor Name: {instructorName}</p>
                 <p>Available Seat: {availableSeat}</p>
                 <div className="card-actions justify-center">
-                    <button onClick={()=>handleAddToCart(singleClass)} className="btn bg-black hover:bg-slate-800 text-white">Select</button>
+                    <button onClick={()=>handleAddToCart(popularClass)} className="btn bg-black hover:bg-slate-800 text-white">Select</button>
                 </div>
             </div>
         </div>

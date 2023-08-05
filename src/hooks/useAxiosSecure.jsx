@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "./useAuth";
 const axiosSecure = axios.create({
-    baseURL:'https://martialart-academy-server.vercel.app',
+    baseURL:'http://localhost:5000',
     
 });
 const useAxiosSecure = () =>{
@@ -26,7 +26,7 @@ const useAxiosSecure = () =>{
             }
             return Promise.reject(error);
         });
-    },[logOut,navigate,axiosSecure]);
+    },[logOut,navigate]);
     return [axiosSecure];
 }
 export default useAxiosSecure;
