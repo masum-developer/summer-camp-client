@@ -53,7 +53,7 @@ const Registration = () => {
                                             Swal.fire({
                                                 position: 'top-end',
                                                 icon: 'success',
-                                                title: 'Student created successfully',
+                                                title: 'User created successfully',
                                                 showConfirmButton: false,
                                                 timer: 2500
                                             });

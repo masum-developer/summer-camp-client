@@ -71,7 +71,7 @@ const Login = () => {
                     <input type="submit" className="btn btn-block hover:bg-slate-800 bg-black text-white  my-4 " value="Login" />
                 </div>
             </form>
-            <p>New to Martial Art Academy <Link to='/register'>Register</Link></p>
+            <p>New to Martial Art Academy <Link to='/register'><span className="text-green-500">Register</span></Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );
